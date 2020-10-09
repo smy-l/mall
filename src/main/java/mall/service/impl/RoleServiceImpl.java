@@ -30,20 +30,15 @@ public class RoleServiceImpl implements RoleService {
 
   @Override
   public void updateRole(long id, Role role) {
-    Role umsRole = roleDao.selectByPrimaryKey(id);
-    umsRole.setAdminCount(role.getAdminCount());
-    umsRole.setDescription(role.getDescription());
-    umsRole.setName(role.getName());
-    umsRole.setSort(role.getSort());
-    umsRole.setStatus(role.getStatus());
-    roleDao.updateByPrimaryKey(umsRole);
+    role.setId(id);
+    roleDao.updateByPrimaryKeySelective(role);
   }
 
   @Override
   public void updateRoleStatus(long id, Integer status) {
     Role role = roleDao.selectByPrimaryKey(id);
     role.setStatus(status);
-    roleDao.updateByPrimaryKey(role);
+    roleDao.updateByPrimaryKeySelective(role);
   }
 
   @Override

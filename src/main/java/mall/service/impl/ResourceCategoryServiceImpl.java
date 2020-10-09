@@ -40,7 +40,7 @@ public class ResourceCategoryServiceImpl implements ResourceCategoryService {
     UmsResourceCategory oldRecord = resourceCategoryDao.selectByPrimaryKey(id);
     oldRecord.setName(resourceCategory.getName());
     oldRecord.setSort(resourceCategory.getSort());
-    resourceCategoryDao.updateByPrimaryKey(oldRecord);
+    resourceCategoryDao.updateByPrimaryKeySelective(oldRecord);
   }
 
 

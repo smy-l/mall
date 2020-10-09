@@ -57,19 +57,13 @@ public class AdminServiceImpl implements AdminService {
 
   @Override
   public void updateAdmin(Long id, Admin admin) {
-    Admin oldAdmin = adminDao.selectByPrimaryKey(id);
-    oldAdmin.setEmail(admin.getEmail());
-    oldAdmin.setIcon(admin.getIcon());
-    oldAdmin.setNickName(admin.getNickName());
-    oldAdmin.setNote(admin.getNote());
-    oldAdmin.setStatus(admin.getStatus());
-    oldAdmin.setUsername(admin.getUsername());
-    adminDao.updateByPrimaryKey(oldAdmin);
+    admin.setId(id);
+    adminDao.updateByPrimaryKeySelective(admin);
   }
 
   @Override
   public void updateAdminLoginTime(Admin admin) {
     admin.setLoginTime(time.format(new Date()));
-    adminDao.updateByPrimaryKey(admin);
+    adminDao.updateByPrimaryKeySelective(admin);
   }
 }

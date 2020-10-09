@@ -138,7 +138,7 @@ public class AdminController {
   @ResponseBody
   public Message updatePermission(Long adminId, Long[] permissionIds) {
 
-    return Message.success("修改成功");
+    return Message.success("权限修改成功");
   }
 
 

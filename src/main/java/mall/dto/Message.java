@@ -66,17 +66,6 @@ public class Message {
     return message;
   }
 
-
-  public void loginSuccess() {
-    this.setCode(200);
-    this.setMessage("操作成功");
-    TokenMsg tokenMsg = new TokenMsg();
-    tokenMsg.setToken(
-            "eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJhZG1pbiIsImNyZWF0ZWQiOjE2MDExNzU1MTQzMzIsImV4cCI6MTYwMTc4MDMxNH0.V7sicTWS8A2SGPlks9E8qkSebH55H7W0AKokXiBLeJ-ZGrfz4WpfgPmHYwpAZaqfe9vNG0TT8qd8KtKsxoBMkg");
-    tokenMsg.setTokenHead("Bearer");
-    this.setData(tokenMsg);
-  }
-
   @Override
   public String toString() {
     return "Message{" +

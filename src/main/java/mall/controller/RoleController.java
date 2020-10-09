@@ -44,7 +44,7 @@ public class RoleController {
 
   @RequestMapping("/role/updateStatus/{id}")
   @ResponseBody
-  public Message updateRoleStatus(@PathVariable("id") long id, Integer status) {
+  public Message updateRoleStatus(@PathVariable("id") Long id, Integer status) {
     roleService.updateRoleStatus(id, status);
     return Message.success("操作成功");
   }
@@ -62,5 +62,54 @@ public class RoleController {
     roleService.insertRole(role);
     return Message.success("创建成功");
   }
+
+  @RequestMapping("/role/allocMenu")
+  @ResponseBody
+  public Message allocMenu(Long roleId, Long[] menuIds) {
+
+    return Message.success("菜单分配成功");
+  }
+
+  @RequestMapping("/role/allocResource")
+  @ResponseBody
+  public Message allocResource(Long roleId, Long[] resourceIds) {
+
+    return Message.success("资源分配成功");
+  }
+
+  @RequestMapping("/role/listMenu/{roleId}")
+  @ResponseBody
+  public Message listMenu(@PathVariable("roleId") Long roleId) {
+
+    return Message.success("获取角色相关菜单成功");
+  }
+
+  @RequestMapping("/role/listResource/{roleId}")
+  @ResponseBody
+  public Message listResource(@PathVariable("roleId") Long roleId) {
+
+    return Message.success("获取角色相关资源");
+  }
+
+  @RequestMapping("/role/permission/update")
+  @ResponseBody
+  public Message permissionUpdate (Long roleId, Long[] permissionIds) {
+
+    return Message.success("角色修改权限成功");
+  }
+
+  @RequestMapping("/role/permission/{roleId}")
+  @ResponseBody
+  public Message getPermission(@PathVariable("roleId") Long roleId) {
+
+    return Message.success("获取相应角色权限成功");
+  }
+
+
+
+
+
+
+
 
 }
